@@ -669,66 +669,79 @@ h6 {
 }
 
 .form {
-  background-color: #141414;
-  padding: 1.875rem 1.25rem;
-  max-width: 28.125rem;
+  max-width: 25rem;
   margin: auto;
   border-radius: 0.625rem;
-  caret-color: rgba(255, 255, 255, 0.86);
-  color: rgba(255, 255, 255, 0.86);
+  caret-color: #141414;
+  font-size: 0.875rem;
+}
+
+@supports (margin-bottom: clamp( 1.875rem , -0.0694444444rem  +  9.7222222222vw , 6.25rem )) {
+  .form {
+    margin-bottom: clamp( 1.875rem , -0.0694444444rem  +  9.7222222222vw , 6.25rem );
+  }
+}
+
+@supports not (margin-bottom: clamp( 1.875rem , -0.0694444444rem  +  9.7222222222vw , 6.25rem )) {
+  .form {
+    margin-bottom: calc(1.875rem + 4.375 * (100vw - 20rem) / 45);
+  }
 }
 
 .form__title {
   font-weight: 700;
-  text-align: center;
   font-size: 1.375rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.625rem;
+}
+
+.form__text {
+  line-height: 1.5;
+  margin-bottom: 0.9375rem;
 }
 
 .form__form {
   display: -ms-grid;
   display: grid;
-  gap: 1.25rem;
+  gap: 0.9375rem;
 }
 
 .form__input {
-  font-size: 1rem;
   height: 2.5rem;
   padding-left: 1.875rem;
-  color: rgba(255, 255, 255, 0.86);
+  color: #6b6b6b;
   background-color: transparent;
   -webkit-transition: color 0.3s ease 0s;
   -o-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.86);
+  border: 1px solid #6b6b6b;
 }
 
 .form__input::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.86);
+  color: #6b6b6b;
   -webkit-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
 }
 
 .form__input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.86);
+  color: #6b6b6b;
   -moz-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
 }
 
 .form__input:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.86);
+  color: #6b6b6b;
   -ms-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
 }
 
 .form__input::-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.86);
+  color: #6b6b6b;
   -ms-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
 }
 
 .form__input::placeholder {
-  color: rgba(255, 255, 255, 0.86);
+  color: #6b6b6b;
   -webkit-transition: color 0.3s ease 0s;
   -o-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
@@ -759,18 +772,17 @@ h6 {
 }
 
 .form__input._form-focus {
-  border-bottom: 1px solid #00beff;
+  border: 1px solid #0519c5;
 }
 
 .form__button {
-  border: 1px solid rgba(255, 255, 255, 0.86);
-  border-radius: 1.25rem;
-  margin: auto;
-  margin-top: 1.25rem;
-  padding: 0.3125rem 3.125rem;
-  -webkit-transition: color 0.3s ease 0s, border 0.3s ease 0s;
-  -o-transition: color 0.3s ease 0s, border 0.3s ease 0s;
-  transition: color 0.3s ease 0s, border 0.3s ease 0s;
+  background-color: #0519c5;
+  color: #fff;
+  height: 2.5rem;
+  font-weight: 500;
+  -webkit-transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+  -o-transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
+  transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
 }
 
 @media (min-width: 29.99875em) {
@@ -946,55 +958,55 @@ h6 {
   }
 
   .form__input._form-focus:hover {
-    color: rgba(255, 255, 255, 0.86);
+    color: #6b6b6b;
   }
 
   .form__input._form-focus:hover::-webkit-input-placeholder {
-    color: rgba(255, 255, 255, 0.86);
+    color: #6b6b6b;
   }
 
   .form__input._form-focus:hover::-moz-placeholder {
-    color: rgba(255, 255, 255, 0.86);
+    color: #6b6b6b;
   }
 
   .form__input._form-focus:hover:-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.86);
+    color: #6b6b6b;
   }
 
   .form__input._form-focus:hover::-ms-input-placeholder {
-    color: rgba(255, 255, 255, 0.86);
+    color: #6b6b6b;
   }
 
   .form__input._form-focus:hover::placeholder {
-    color: rgba(255, 255, 255, 0.86);
+    color: #6b6b6b;
   }
 
   .form__input:hover {
-    color: #00beff;
+    color: #0519c5;
   }
 
   .form__input:hover::-webkit-input-placeholder {
-    color: #00beff;
+    color: #0519c5;
   }
 
   .form__input:hover::-moz-placeholder {
-    color: #00beff;
+    color: #0519c5;
   }
 
   .form__input:hover:-ms-input-placeholder {
-    color: #00beff;
+    color: #0519c5;
   }
 
   .form__input:hover::-ms-input-placeholder {
-    color: #00beff;
+    color: #0519c5;
   }
 
   .form__input:hover::placeholder {
-    color: #00beff;
+    color: #0519c5;
   }
 
   .form__button:hover {
-    color: #00beff;
-    border: 1px solid #00beff;
+    color: #141414;
+    background-color: #00beff;
   }
 }
