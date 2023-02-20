@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face {
   font-family: HelveticaNeueCyr;
   font-display: swap;
@@ -240,6 +242,7 @@ h6 {
   position: fixed;
   z-index: 2;
   width: 100%;
+  white-space: nowrap;
 }
 
 .header__container {
@@ -265,6 +268,13 @@ h6 {
   .header__container {
     gap: calc(0.9375rem + 1.5625 * (100vw - 62rem) / 11.125);
   }
+}
+
+.header__logos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0.625rem;
 }
 
 .header__menu {
@@ -304,7 +314,7 @@ h6 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 1.875rem;
+  gap: 1.5625rem;
 }
 
 .header__actions > * {
@@ -315,11 +325,6 @@ h6 {
       -ms-flex-align: center;
           align-items: center;
   gap: 0.625rem;
-}
-
-.header__actions > *:not(:last-child) {
-  border-right: 1px solid #fff;
-  padding-right: 1.25rem;
 }
 
 .icon-menu {
@@ -393,11 +398,11 @@ h6 {
 
 .page__container {
   max-width: 75rem;
+  color: rgb(51, 51, 51);
 }
 
 .page__logo {
   margin: auto;
-  margin-bottom: 1.875rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -415,15 +420,39 @@ h6 {
   }
 }
 
+@supports (margin-bottom: clamp( 1.25rem , 1.0227272727rem  +  1.1363636364vw , 1.875rem )) {
+  .page__logo {
+    margin-bottom: clamp( 1.25rem , 1.0227272727rem  +  1.1363636364vw , 1.875rem );
+  }
+}
+
+@supports not (margin-bottom: clamp( 1.25rem , 1.0227272727rem  +  1.1363636364vw , 1.875rem )) {
+  .page__logo {
+    margin-bottom: calc(1.25rem + 0.625 * (100vw - 20rem) / 55);
+  }
+}
+
 .page__breadcrumbs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 0.4375rem;
+  color: #6b6b6b;
+}
+
+@supports (margin-bottom: clamp( 0.625rem , 0.1704545455rem  +  2.2727272727vw , 1.875rem )) {
+  .page__breadcrumbs {
+    margin-bottom: clamp( 0.625rem , 0.1704545455rem  +  2.2727272727vw , 1.875rem );
+  }
+}
+
+@supports not (margin-bottom: clamp( 0.625rem , 0.1704545455rem  +  2.2727272727vw , 1.875rem )) {
+  .page__breadcrumbs {
+    margin-bottom: calc(0.625rem + 1.25 * (100vw - 20rem) / 55);
+  }
 }
 
 .page__breadcrumbs-item {
-  color: #6b6b6b;
   font-size: 0.75rem;
   font-weight: 400;
   position: relative;
@@ -434,19 +463,147 @@ h6 {
   padding-left: 0.1875rem;
 }
 
+.article__title {
+  font-weight: 700;
+  line-height: 1.1111111111;
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+@supports (font-size: clamp( 1.25rem , 0.8863636364rem  +  1.8181818182vw , 2.25rem )) {
+  .article__title {
+    font-size: clamp( 1.25rem , 0.8863636364rem  +  1.8181818182vw , 2.25rem );
+  }
+}
+
+@supports not (font-size: clamp( 1.25rem , 0.8863636364rem  +  1.8181818182vw , 2.25rem )) {
+  .article__title {
+    font-size: calc(1.25rem + 1 * (100vw - 20rem) / 55);
+  }
+}
+
+.article__info {
+  white-space: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 0.875rem;
+  -webkit-column-gap: 0.625rem;
+     -moz-column-gap: 0.625rem;
+          column-gap: 0.625rem;
+  display: -ms-inline-grid;
+  display: inline-grid;
+  -ms-grid-columns: (auto)[3];
+  grid-template-columns: repeat(3, auto);
+}
+
+@supports (margin-bottom: clamp( 0.3125rem , -0.0284090909rem  +  1.7045454545vw , 1.25rem )) {
+  .article__info {
+    margin-bottom: clamp( 0.3125rem , -0.0284090909rem  +  1.7045454545vw , 1.25rem );
+  }
+}
+
+@supports not (margin-bottom: clamp( 0.3125rem , -0.0284090909rem  +  1.7045454545vw , 1.25rem )) {
+  .article__info {
+    margin-bottom: calc(0.3125rem + 0.9375 * (100vw - 20rem) / 55);
+  }
+}
+
+.article__author-foto {
+  border-radius: 50%;
+}
+
+.article__author-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 700;
+  -webkit-column-gap: 0.625rem;
+     -moz-column-gap: 0.625rem;
+          column-gap: 0.625rem;
+}
+
+.article__author-name {
+  position: relative;
+}
+
+.article__date {
+  font-weight: 400;
+}
+
 .article__image {
   width: 100%;
+  display: block;
+}
+
+@media (min-width: 29.99875em) {
+  .article__author-name::after {
+    content: "•";
+    padding-left: 0.625rem;
+  }
+}
+
+@media (min-width: 47.99875em) {
+  .header__actions > *:not(:last-child) {
+    padding-right: 1.5625rem;
+    border-right: 1px solid #fff;
+  }
+}
+
+@media (min-width: 61.99875em) {
+  .header__logo-mobile {
+    display: none;
+  }
 }
 
 @media (max-width: 61.99875em) {
+  .header__logo-main {
+    border-right: 1px solid rgb(79, 79, 79);
+  }
+
+  .header__logo-mobile {
+    border-left: 1px solid #fff;
+    padding-left: 0.625rem;
+  }
+
   .header__menu {
     display: none;
   }
 }
 
-@media (max-width: 29.99875em) {
+@media (max-width: 47.99875em) {
+  .header__actions {
+    gap: 0.625rem;
+  }
+
   .header__actions-text {
     display: none;
+  }
+
+  .article__info {
+    -ms-grid-columns: (auto)[2];
+    grid-template-columns: repeat(2, auto);
+  }
+
+  .article__date {
+    -ms-grid-column-span: 2;
+    grid-column: span 2;
+    padding-left: 2.8125rem;
+  }
+}
+
+@media (max-width: 29.99875em) {
+  .article__author-info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: start;
   }
 }
 
@@ -461,7 +618,7 @@ h6 {
     color: #fff;
   }
 
-  .header__logo:hover {
+  .header__logo-main:hover {
     -webkit-animation: logo 1.2s ease-in-out infinite;
             animation: logo 1.2s ease-in-out infinite;
   }
@@ -504,23 +661,23 @@ h6 {
     }
 }
 
-  .header__menu-link .loaded {
+  .loaded .header__menu-link {
     -webkit-transition: color 0.3s ease 0s;
     -o-transition: color 0.3s ease 0s;
     transition: color 0.3s ease 0s;
   }
 
-  .header__menu-link .loaded:hover {
+  .loaded .header__menu-link:hover {
     color: #00beff;
   }
 
-  .header__actions > * .loaded {
+  .loaded .header__actions > * {
     -webkit-transition: color 0.3s ease 0s;
     -o-transition: color 0.3s ease 0s;
     transition: color 0.3s ease 0s;
   }
 
-  .header__actions > * .loaded:hover {
+  .loaded .header__actions > *:hover {
     color: #00beff;
   }
 
