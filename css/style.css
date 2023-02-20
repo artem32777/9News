@@ -11,14 +11,6 @@
 @font-face {
   font-family: HelveticaNeueCyr;
   font-display: swap;
-  src: url("../fonts/HelveticaNeueCyr-Heavy.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Heavy.woff") format("woff");
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: HelveticaNeueCyr;
-  font-display: swap;
   src: url("../fonts/HelveticaNeueCyr-Medium.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -37,14 +29,6 @@
   font-display: swap;
   src: url("../fonts/HelveticaNeueCyr-Light.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Light.woff") format("woff");
   font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: HelveticaNeueCyr;
-  font-display: swap;
-  src: url("../fonts/HelveticaNeueCyr-Black.woff2") format("woff2"), url("../fonts/HelveticaNeueCyr-Black.woff") format("woff");
-  font-weight: 900;
   font-style: normal;
 }
 
@@ -143,6 +127,10 @@ h6 {
       touch-action: none;
   -ms-scroll-chaining: none;
       overscroll-behavior: none;
+}
+
+.loaded body {
+  opacity: 1;
 }
 
 .wrapper {
@@ -428,6 +416,9 @@ h6 {
 
 .footer__logo {
   color: #fff;
+}
+
+.loaded .footer__logo {
   -webkit-transition: color 0.3s ease 0s;
   -o-transition: color 0.3s ease 0s;
   transition: color 0.3s ease 0s;
@@ -946,6 +937,9 @@ h6 {
   color: #fff;
   height: 2.5rem;
   font-weight: 500;
+}
+
+.loaded .form__button {
   -webkit-transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
   -o-transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
   transition: color 0.3s ease 0s, background-color 0.3s ease 0s;
