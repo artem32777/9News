@@ -767,6 +767,10 @@ h6 {
   font-weight: 400;
 }
 
+.article__date span {
+  margin-right: 0.625rem;
+}
+
 .article__text {
   line-height: 1.3333333333;
   font-weight: 400;
