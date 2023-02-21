@@ -72,6 +72,19 @@
             return `${month} ${day}, ${year}, 15 минут назад`;
         }
     }
+    function weatherWidget() {
+        navigator.geolocation.getCurrentPosition((function(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=ru&appid=e67cfc1c891a2e1a66e199475386f7e5`;
+            fetch(url).then((function(resp) {
+                return resp.json();
+            })).then((function(data) {
+                document.getElementById("weather-temp").innerHTML = Math.round(data.main.temp - 273) + "&deg;";
+                document.getElementById("weather-icon").innerHTML = `<img width="44" height="44" src="https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png">`;
+            }));
+        }));
+    }
     function functions_menuClose() {
         bodyUnlock();
         document.documentElement.classList.remove("menu-open");
@@ -317,25 +330,12 @@
             }));
         }
     }), 0);
-    function getLocation() {
-        navigator.geolocation.getCurrentPosition((function(position) {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=ru&appid=e67cfc1c891a2e1a66e199475386f7e5`;
-            fetch(url).then((function(resp) {
-                return resp.json();
-            })).then((function(data) {
-                document.getElementById("weather-temp").innerHTML = Math.round(data.main.temp - 273) + "&deg;";
-                document.getElementById("weather-icon").innerHTML = `<img width="44" height="44" src="https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png">`;
-            }));
-        }));
-    }
-    window.onload = getLocation();
     window["FLS"] = false;
     isWebp();
     addLoadedClass();
     phoneMask();
     articleDate();
+    weatherWidget();
     formFieldsInit({
         viewPass: false
     });
