@@ -66,7 +66,7 @@
             }));
         }));
     }
-    function functions_FLS(message) {
+    function FLS(message) {
         setTimeout((() => {
             if (window.FLS) console.log(message);
         }), 0);
@@ -254,21 +254,12 @@
                 }
             }), 0);
             formValidate.formClean(form);
-            formLogging(`Форму відправлено!`);
+            formLogging(`Form sent`);
         }
         function formLogging(message) {
-            functions_FLS(`[Форми]: ${message}`);
+            FLS(`[Forms]: ${message}`);
         }
     }
-    let addWindowScrollEvent = false;
-    setTimeout((() => {
-        if (addWindowScrollEvent) {
-            let windowScroll = new Event("windowScroll");
-            window.addEventListener("scroll", (function(e) {
-                document.dispatchEvent(windowScroll);
-            }));
-        }
-    }), 0);
     window["FLS"] = false;
     isWebp();
     addLoadedClass();
