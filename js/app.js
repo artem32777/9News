@@ -318,21 +318,17 @@
         }
     }), 0);
     function getLocation() {
-        if ("geolocation" in navigator) navigator.geolocation.getCurrentPosition((function(position) {
+        navigator.geolocation.getCurrentPosition((function(position) {
             const lat = position.coords.latitude;
             const lon = position.coords.longitude;
             const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=ru&appid=e67cfc1c891a2e1a66e199475386f7e5`;
             fetch(url).then((function(resp) {
                 return resp.json();
             })).then((function(data) {
-                document.querySelector(".weather__forecast").innerHTML = Math.round(data.main.temp - 273) + "&deg;";
-                document.querySelector(".weather__icon").innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png">`;
-            })).catch((function() {
-                console.log("Weather widget error");
+                document.getElementById("weather-temp").innerHTML = Math.round(data.main.temp - 273) + "&deg;";
+                document.getElementById("weather-icon").innerHTML = `<img width="44" height="44" src="https://openweathermap.org/img/wn/${data.weather[0]["icon"]}@2x.png">`;
             }));
-        }), (function(error) {
-            console.log(`Error ${error.code}: ${error.message}`);
-        })); else console.log("Geolocation is not supported by this browser.");
+        }));
     }
     window.onload = getLocation();
     window["FLS"] = false;
