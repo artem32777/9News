@@ -21,25 +21,6 @@
             }), 0);
         }));
     }
-    let bodyLockStatus = true;
-    let bodyUnlock = (delay = 500) => {
-        let body = document.querySelector("body");
-        if (bodyLockStatus) {
-            let lock_padding = document.querySelectorAll("[data-lp]");
-            setTimeout((() => {
-                for (let index = 0; index < lock_padding.length; index++) {
-                    const el = lock_padding[index];
-                    el.style.paddingRight = "0px";
-                }
-                body.style.paddingRight = "0px";
-                document.documentElement.classList.remove("lock");
-            }), delay);
-            bodyLockStatus = false;
-            setTimeout((function() {
-                bodyLockStatus = true;
-            }), delay);
-        }
-    };
     function phoneMask() {
         document.addEventListener("DOMContentLoaded", (function() {
             var eventCalllback = function(e) {
