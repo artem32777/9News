@@ -889,6 +889,35 @@ h6 {
   border: 1px solid #0519c5;
 }
 
+.form__phone-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.form__phone-wrapper span {
+  border: 1px solid #acacac;
+  border-right: 0;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0.1875rem;
+  font-size: 0.75rem;
+}
+
+.form__phone-wrapper input {
+  width: 100%;
+  padding-left: 0.3125rem;
+}
+
 .form__button {
   background-color: #0519c5;
   color: #fff;

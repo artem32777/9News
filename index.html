@@ -10,7 +10,7 @@
 			opacity: 0;
 		}
 	</style>
-	<link rel="stylesheet" href="css/style.min.css?_v=20230221064240">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230222202239">
 	<link rel="shortcut icon" href="img/favicon.svg">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -208,7 +208,11 @@
 						<input data-required autocomplete="off" type="text" name="form[]" data-error="" placeholder="Name" class="form__input">
 						<input data-required autocomplete="off" type="text" name="form[]" data-error="" placeholder="Last name" class="form__input">
 						<input data-required="email" autocomplete="off" type="text" name="form[]" data-error="" placeholder="Email" class="form__input">
-						<input data-required data-phone-pattern autocomplete="off" type="text" name="form[]" data-error="" placeholder="Phone" class="form__input">
+						<div class="form__phone-wrapper">
+							<span>+55</span>
+							<input data-required data-phone-pattern autocomplete="off" type="text" name="form[]" data-error="" placeholder="Phone" class="form__input phone">
+						</div>
+						<input hidden autocomplete="off" type="text" name="phone-input" data-error="" class="form__input hiddenphone">
 						<button type="submit" class="form__button">Send</button>
 					</form>
 				</section>
@@ -610,8 +614,8 @@
 			</nav>
 		</footer>
 	</div>
-	<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js?_v=20230221064240"></script> -->
-	<script src="js/app.min.js?_v=20230221064240"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js?_v=20230222202239"></script> -->
+	<script src="js/app.min.js?_v=20230222202239"></script>
 
 </body>
 

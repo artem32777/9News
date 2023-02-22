@@ -24,7 +24,7 @@
     function phoneMask() {
         document.addEventListener("DOMContentLoaded", (function() {
             var eventCalllback = function(e) {
-                var el = e.target, clearVal = el.dataset.phoneClear, pattern = el.dataset.phonePattern, matrix_def = "+7(___) ___-__-__", matrix = pattern ? pattern : matrix_def, i = 0, def = matrix.replace(/\D/g, ""), val = e.target.value.replace(/\D/g, "");
+                var el = e.target, clearVal = el.dataset.phoneClear, pattern = el.dataset.phonePattern, matrix_def = "(___) ___-__-__", matrix = pattern ? pattern : matrix_def, i = 0, def = matrix.replace(/\D/g, ""), val = e.target.value.replace(/\D/g, "");
                 if ("false" !== clearVal && "blur" === e.type) if (val.length < matrix.match(/([\_\d])/g).length) {
                     e.target.value = "";
                     return;
@@ -260,6 +260,10 @@
             FLS(`[Forms]: ${message}`);
         }
     }
+    document.querySelector(".form__form").addEventListener("submit", (() => {
+        document.querySelector(".hiddenphone").value = "+55" + document.querySelector(".phone").value;
+        console.log(document.querySelector(".hiddenphone").value);
+    }));
     window["FLS"] = false;
     isWebp();
     addLoadedClass();
